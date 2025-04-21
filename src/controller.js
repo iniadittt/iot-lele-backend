@@ -36,7 +36,7 @@ const controller = {
 		try {
 			await prisma.$connect();
 			const [dataPh, dataKekeruhan] = await Promise.all([
-				await prisma.sensor.findMany({
+				prisma.sensor.findMany({
 					take: 50,
 					orderBy: { updatedAt: "desc" },
 					where: { type: "PH_AIR" },
@@ -46,7 +46,7 @@ const controller = {
 						createdAt: true,
 					},
 				}),
-				await prisma.sensor.findMany({
+				prisma.sensor.findMany({
 					take: 50,
 					orderBy: { updatedAt: "desc" },
 					where: { type: "KEKERUHAN" },
@@ -88,7 +88,7 @@ const controller = {
 			if (!createdSensor) return message(response, 200, true, "Gagal menambah data sensor", null);
 			if (io) {
 				const [dataPh, dataKekeruhan] = await Promise.all([
-					await prisma.sensor.findMany({
+					prisma.sensor.findMany({
 						take: 50,
 						orderBy: { updatedAt: "desc" },
 						where: { type: "PH_AIR" },
@@ -98,7 +98,7 @@ const controller = {
 							createdAt: true,
 						},
 					}),
-					await prisma.sensor.findMany({
+					prisma.sensor.findMany({
 						take: 50,
 						orderBy: { updatedAt: "desc" },
 						where: { type: "KEKERUHAN" },
