@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/login", controller.login);
 app.get("/sensor", async (request, response) => await controller.get(request, response, io));
-app.post("/sensor", authentication, async (request, response) => await controller.add(request, response, io));
+app.post("/sensor", async (request, response) => await controller.add(request, response, io));
 
 server.listen(PORT, async () => {
 	console.log(`Server running on: http://localhost:${PORT}`);
