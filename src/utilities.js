@@ -53,7 +53,7 @@ const nilaiSAW = (data) => {
 	if (skor >= 0.85) {
 		kategori = "Baik";
 	} else if (skor >= 0.75) {
-		kategori = "Normal";
+		kategori = "Sedang";
 	} else {
 		kategori = "Buruk";
 	}
